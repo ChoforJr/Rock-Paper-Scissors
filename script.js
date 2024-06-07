@@ -1,61 +1,74 @@
-
-function getComputerChoice () {
-    let computerChoice = Math.floor(Math.random()*100);
-    if (computerChoice <=30) {
-        return console.log('rock');
-    } else if (computerChoice>30 && computerChoice<=60) {
-        return console.log('paper');
-    }else {
-        return console.log('scissors');
-    }
-}
-
-function getHumanChoice () {
-    let humanChoice = prompt('Input rock, paper or scissors', 'paper');
-    if (humanChoice == 'rock'){
-        return console.log('rock');
-    }else if (humanChoice == 'paper'){
-        return console.log('paper');
-    }else if (humanChoice == 'scissors') {
-        return console.log('scissors');
-    }else {
-        return console.log('invalid input');
-    }
-}
-
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
-    switch (humanChoice,computerChoice){
-        case humanChoice=='rock'&&computerChoice=='paper':
-            computerScore+=1;
-            return console.log('You lose! Paper beats Rock');
-        case humanChoice=='paper'&&computerChoice=='scissors':
-            computerScore+=1;
-            return console.log('You lose! Scissors beats Paper');
-        case humanChoice=='scissors'&&computerChoice=='rock':
-            computerScore+=1;
-            return console.log('You lose! Rock beats Scissors');
-        case humanChoice=='paper'&&computerChoice=='rock':
-            humanScore+=1;
-            return console.log('You win! Paper beats Rock');
-        case humanChoice=='scissors'&&computerChoice=='paper':
-            humanScore+=1;
-            return console.log('You win! Scissors beats Paper');
-        case humanChoice=='rock'&&computerChoice=='scissors':
-            humanScore+=1;
-            return console.log('You win! Rock beats Scissors');
-        default :
-        return console.log('It is a Draw!');
-    }
-   
-  }
-  
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  
-  playRound(humanSelection, computerSelection);
-  
 
+function playRound(humanChoice, computerChoice) {
+    if(humanChoice==='rock' && computerChoice==='paper'){
+        computerScore++;
+        console.log(`You choose: ${humanChoice} --- Computer choose: ${computerChoice}`);
+        console.log('You lose! Paper beats Rock');
+        return;
+    }else if (humanChoice==='paper' && computerChoice==='scissors'){
+        computerScore++;
+        console.log(`You choose: ${humanChoice} --- Computer choose: ${computerChoice}`);
+        console.log('You lose! Scissors beats Paper') ;
+        return;
+    }else if (humanChoice==='scissors' && computerChoice==='rock'){
+        computerScore++;
+        console.log(`You choose: ${humanChoice} --- Computer choose: ${computerChoice}`);
+        console.log('You lose! Rock beats Scissors') ;
+        return;
+    }else if (humanChoice==='paper' && computerChoice==='rock'){
+        humanScore++;
+        console.log(`You choose: ${humanChoice} --- Computer choose: ${computerChoice}`);
+        console.log('You win! Paper beats Rock') ;  
+        return; 
+    }else if (humanChoice==='scissors' && computerChoice==='paper'){
+        humanScore++;
+        console.log(`You choose: ${humanChoice} --- Computer choose: ${computerChoice}`);
+        console.log('You win! Scissors beats Paper') ;
+        return;
+    }else if (humanChoice==='rock' && computerChoice==='scissors') {
+        humanScore++;
+        console.log(`You choose: ${humanChoice} --- Computer choose: ${computerChoice}`);
+        console.log('You win! Rock beats Scissors') ;
+        return;
+    }else {
+        console.log(`You choose: ${humanChoice} --- Computer choose: ${computerChoice}`);
+        console.log('It is a Draw!') ;
+        return;
+    }
+}
+
+function getComputerChoice()
+{
+    let computerChoice;
+    let randomInt=Math.floor(Math.random()*3);
+    if(randomInt==0){
+        computerChoice="rock"
+    }
+    else if(randomInt==1){
+        computerChoice="paper"
+    }
+    else{
+        computerChoice="scissors"
+    }   
+    return computerChoice;
+}
+
+function getHumanChoice()
+{
+    let humanChoice=prompt('enter your choice').toLowerCase();
+    return humanChoice
+}
+
+function playGame(){
+    for(let i=0;i<5;i++){
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(`Your Score: ${humanScore} --- Computer Score: ${computerScore}`);
+    }
+}
+
+playGame();
