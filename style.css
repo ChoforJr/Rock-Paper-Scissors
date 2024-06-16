@@ -1,0 +1,58 @@
+
+
+h1{
+    margin :auto;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #1b42c2;
+}
+#rules{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #af1bc2;
+}
+#buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#rock{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    border: solid 1px black;
+    cursor: pointer;
+    background-color: brown;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+}
+#paper{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    border: solid 1px black;
+    cursor: pointer;
+    background-color: rgb(95, 89, 119);
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+}
+#scissors{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    border: solid 1px black;
+    cursor: pointer;
+    background-color: rgb(97, 138, 88);
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
